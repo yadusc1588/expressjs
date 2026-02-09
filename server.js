@@ -18,6 +18,10 @@ app.get("/", (req, res) => {
   res.send("Hello from the Cars API!");
 });
 
+router.get("/", (req, res) => {
+  res.json(cars);
+});
+
 router.get("/:id", (req, res) => {
   const id = Number(req.params.id);
   const car = cars.find((car) => car.id === id);
@@ -25,9 +29,6 @@ router.get("/:id", (req, res) => {
   res.json(car);
 });
 
-router.get("/", (req, res) => {
-  res.json(cars);
-});
 
 router.post("/", (req, res) => {
   res.send("Add a New Car");
